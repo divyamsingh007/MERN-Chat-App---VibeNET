@@ -1,9 +1,12 @@
 import React from 'react'
+import assets from '../assets/assets'
 
-export default function RightSidebar() {
-  return (
+export default function RightSidebar({selectedUser}) {
+  return selectedUser && (
     <div>
-      <h1>Right Sidebar</h1>
+      <div>
+        <img src={selectedUser?.profilePic || assets.avatar_icon} alt="" />
+      </div>
     </div>
   )
 }
