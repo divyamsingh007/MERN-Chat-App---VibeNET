@@ -4,6 +4,7 @@ import { protectRoutes } from "../middleware/auth.js";
 import {
   getMessages,
   getUsersForSidebar,
+  markMessageAsSeen,
   sendMessage,
 } from "../controller/messageController.js";
 
@@ -12,7 +13,7 @@ const messageRouter = express.Router();
 messageRouter.get("/users", protectRoutes, getUsersForSidebar);
 messageRouter.get("/:id", protectRoutes, getMessages);
 
-messageRouter.put("mark/:id", protectRoutes, getMessages);
+messageRouter.put("/mark/:id", protectRoutes, markMessageAsSeen);
 
 messageRouter.post("/send/:id", protectRoutes, sendMessage)
 
